@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KqNmb6GJJ+KiaWPqiMLjZxPGaD/ntC/oMeHO8WCn6f77+PoMtwvNo+OxJpbmtmi383XXsG584XaU88gZnmOynw==",
+  "dgSpecHash": "vX+x4rpHQZ8fiSPlhrPKV06jX3Rhtejg3ynga4+ou6FK73U8ZjeqFP6ArA1uBpqd13jXK05hzyF5kWEv9ZeabQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Guilherme Moitinho\\Desktop\\houseasy_API\\houseasy_API.csproj",
+  "projectFilePath": "C:\\Users\\Guilherme Moitinho\\Desktop\\Estudo programa\\houseasy_API\\Api_ASPNET\\houseasy_API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Guilherme Moitinho\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\Guilherme Moitinho\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

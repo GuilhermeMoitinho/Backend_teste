@@ -22,20 +22,44 @@ namespace houseasy_API.Controllers
             _mapper = mapper;
         }
 
-        [HttpPost]
+        [HttpPost("DTO")]
         public async Task<ActionResult<ServiceResponse<List<Usuario>>>> CreateFuncionarios(Usuario modelCreate)
         {
-            return Ok(await _UsuarioInterface.CreateFuncionarios(modelCreate));
+            var usuariosResponse = await _UsuarioInterface.CreateFuncionarios(modelCreate);
+
+            if (usuariosResponse == null || usuariosResponse.Dados == null)
+            {
+                return NotFound();
+            }
+
+            var usuariosDTO = _mapper.Map<List<UsuarioDTO>>(usuariosResponse.Dados);
+
+            var serviceresponse = new ServiceResponse<List<UsuarioDTO>>(); 
+            serviceresponse.Dados = usuariosDTO;
+            serviceresponse.Mensagem = "Criação Ok!";
+            return Ok(serviceresponse);
         }
 
-        [HttpDelete("{id}")]
-        public async Task<ActionResult<ServiceResponse<List<Usuario>>>> DeleteFuncionarios(int id)
+        [HttpDelete("DTO/{id}")]
+        public async Task<ActionResult<ServiceResponse<List<UsuarioDTO>>>> DeleteFuncionarios(int id)
         {
-            return Ok(await _UsuarioInterface.DeleteFuncionarios(id));
+            var usuariosResponse = await _UsuarioInterface.DeleteFuncionarios(id);
+
+            if (usuariosResponse == null || usuariosResponse.Dados == null)
+            {
+                return NotFound();
+            }
+
+            var usuariosDTO = _mapper.Map<List<UsuarioDTO>>(usuariosResponse.Dados);
+
+            var serviceresponse = new ServiceResponse<List<UsuarioDTO>>(); 
+            serviceresponse.Dados = usuariosDTO;
+            serviceresponse.Mensagem = "Exclusão, Ok!";
+            return Ok(serviceresponse);
         }
 
-        [HttpGet]
-        public async Task<ActionResult<List<UsuarioDTO>>> GetUsuarios()
+        [HttpGet("DTO")]
+        public async Task<ActionResult<ServiceResponse<List<UsuarioDTO>>>> GetUsuarios()
         {
             var usuariosResponse = await _UsuarioInterface.GetUsuarios();
 
@@ -46,11 +70,14 @@ namespace houseasy_API.Controllers
 
             var usuariosDTO = _mapper.Map<List<UsuarioDTO>>(usuariosResponse.Dados);
 
-            return Ok(usuariosDTO);
+            var serviceresponse = new ServiceResponse<List<UsuarioDTO>>(); 
+            serviceresponse.Dados = usuariosDTO;
+            serviceresponse.Mensagem = "Requicição dos itens, Ok!";
+            return Ok(serviceresponse);
         }
 
 
-        [HttpGet("{id}")]
+        [HttpGet("DTO/{id}")]
         public async Task<ActionResult<UsuarioDTO>> GetFuncionariosById(int id)
         {
             var usuario = await _UsuarioInterface.GetFuncionariosById(id);
@@ -61,15 +88,29 @@ namespace houseasy_API.Controllers
             }
 
             var usuarioDTO = _mapper.Map<UsuarioDTO>(usuario.Dados);
-
-            return Ok(usuarioDTO);
+            var serviceresponse = new ServiceResponse<UsuarioDTO>(); 
+            serviceresponse.Dados = usuarioDTO;
+            serviceresponse.Mensagem = "Busca pelo ID, Ok!";
+            return Ok(serviceresponse);
         }
 
 
-        [HttpPut("{id}")]
+        [HttpPut("DTO/{id}")]
         public async Task<ActionResult<ServiceResponse<Usuario>>> UpdateFuncionarios(Usuario modelUpdate, int id)
         {
-            return Ok(await _UsuarioInterface.UpdateFuncionarios(modelUpdate, id));
+            var usuariosResponse = await _UsuarioInterface.UpdateFuncionarios(modelUpdate, id);
+
+            if (usuariosResponse == null || usuariosResponse.Dados == null)
+            {
+                return NotFound();
+            }
+
+            var usuariosDTO = _mapper.Map<List<UsuarioDTO>>(usuariosResponse.Dados);
+
+            var serviceresponse = new ServiceResponse<List<UsuarioDTO>>(); 
+            serviceresponse.Dados = usuariosDTO;
+            serviceresponse.Mensagem = "Atualização Ok!";
+            return Ok(serviceresponse);
         }
 
 
