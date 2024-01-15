@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace houseasy_API.Models
+namespace houseasy_API.Domain.Models
 {
     public class Usuario
     {

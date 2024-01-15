@@ -1,7 +1,6 @@
-using houseasy_API.DataContext;
-using houseasy_API.Mappings;
-using houseasy_API.Services;
-using houseasy_API.Services.UsuarioService;
+using houseasy_API.Application.Mappings;
+using houseasy_API.Application.Services.UsuarioService;
+using houseasy_API.Infrastructure.DataContext;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

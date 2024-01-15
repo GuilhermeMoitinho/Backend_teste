@@ -2,15 +2,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using houseasy_API.DataContext;
-using houseasy_API.Models;
+using houseasy_API.Domain.Models;
+using houseasy_API.Infrastructure.DataContext;
 
-namespace houseasy_API.Services.UsuarioService
+namespace houseasy_API.Application.Services.UsuarioService
 {
     public class UsuarioService : IUsuarioInterface
     {
         private readonly AppDbContext _context;
-        
+
         public UsuarioService(AppDbContext context)
         {
             _context = context;
@@ -20,8 +20,10 @@ namespace houseasy_API.Services.UsuarioService
         {
             var ServiceResponse = new ServiceResponse<List<Usuario>>();
 
-            try{
-                if(modelCreate == null){
+            try
+            {
+                if (modelCreate == null)
+                {
                     ServiceResponse.Dados = null;
                     ServiceResponse.Mensagem = "Informar Usuário!";
 
@@ -34,8 +36,10 @@ namespace houseasy_API.Services.UsuarioService
                 ServiceResponse.Dados = _context.Usuarios.ToList();
                 ServiceResponse.Mensagem = "Usuário criado com sucesso!";
 
-                
-            }catch(Exception x){
+
+            }
+            catch (Exception x)
+            {
                 ServiceResponse.Mensagem = x.Message;
             }
 
@@ -46,8 +50,10 @@ namespace houseasy_API.Services.UsuarioService
         {
             var ServiceResponse = new ServiceResponse<List<Usuario>>();
 
-            try{
-                if(id == null){
+            try
+            {
+                if (id == null)
+                {
                     ServiceResponse.Dados = null;
                     ServiceResponse.Mensagem = "Usuário não identificado!";
 
@@ -62,8 +68,10 @@ namespace houseasy_API.Services.UsuarioService
                 ServiceResponse.Dados = _context.Usuarios.ToList();
                 ServiceResponse.Mensagem = "Usuário removido com sucesso!";
 
-                
-            }catch(Exception x){
+
+            }
+            catch (Exception x)
+            {
                 ServiceResponse.Mensagem = x.Message;
             }
 
@@ -73,8 +81,10 @@ namespace houseasy_API.Services.UsuarioService
         public async Task<ServiceResponse<Usuario>> GetFuncionariosById(int id)
         {
             var ServiceResponse = new ServiceResponse<Usuario>();
-            try{
-             if(id == null){
+            try
+            {
+                if (id == null)
+                {
                     ServiceResponse.Dados = null;
                     ServiceResponse.Mensagem = "Usuário não identificado!";
 
@@ -85,7 +95,9 @@ namespace houseasy_API.Services.UsuarioService
 
                 ServiceResponse.Dados = UsuarioRemover;
                 ServiceResponse.Mensagem = "Usuário encontrado!";
-            }catch(Exception x){
+            }
+            catch (Exception x)
+            {
                 ServiceResponse.Mensagem = x.Message;
             }
 
@@ -96,12 +108,15 @@ namespace houseasy_API.Services.UsuarioService
         {
             var ServiceResponse = new ServiceResponse<List<Usuario>>();
 
-            try{
+            try
+            {
                 ServiceResponse.Dados = _context.Usuarios.ToList();
                 ServiceResponse.Mensagem = "Usuário trazidos com sucesso!";
 
-                
-            }catch(Exception x){
+
+            }
+            catch (Exception x)
+            {
                 ServiceResponse.Mensagem = x.Message;
             }
 
@@ -112,10 +127,11 @@ namespace houseasy_API.Services.UsuarioService
         {
             var serviceresponse = new ServiceResponse<List<Usuario>>();
 
-             try{
-              Usuario usuarioBanco = _context.Usuarios.Find(id);
+            try
+            {
+                Usuario usuarioBanco = _context.Usuarios.Find(id);
 
-               if(usuarioBanco == null)
+                if (usuarioBanco == null)
                 {
                     serviceresponse.Dados = null;
                     serviceresponse.Mensagem = "Usuário não foi encontrado!";
@@ -126,14 +142,16 @@ namespace houseasy_API.Services.UsuarioService
                 usuarioBanco.Telefone = modelUpdate.Telefone;
                 usuarioBanco.Ocupacao = modelUpdate.Ocupacao;
 
-               _context.Update(usuarioBanco);
-               await _context.SaveChangesAsync();
+                _context.Update(usuarioBanco);
+                await _context.SaveChangesAsync();
 
-               serviceresponse.Dados = _context.Usuarios.ToList();
-               serviceresponse.Mensagem = "Usuário atualizado com sucesso!";
+                serviceresponse.Dados = _context.Usuarios.ToList();
+                serviceresponse.Mensagem = "Usuário atualizado com sucesso!";
 
-            }catch(Exception ex){
-                
+            }
+            catch (Exception ex)
+            {
+
                 serviceresponse.Mensagem = ex.Message;
             }
 

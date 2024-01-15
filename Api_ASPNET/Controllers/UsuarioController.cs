@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
-using houseasy_API.DTOs;
-using houseasy_API.Models;
-using houseasy_API.Services;
+using houseasy_API.Application.DTOs;
+using houseasy_API.Application.Services.UsuarioService;
+using houseasy_API.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace houseasy_API.Controllers
