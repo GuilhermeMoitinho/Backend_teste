@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("houseasy_API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+16def8c6aaf969339636c9c4216b2b936e913b1a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a45bb5cda5c2a47425a9fe054547687a58fa3360")]
 [assembly: System.Reflection.AssemblyProductAttribute("houseasy_API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("houseasy_API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

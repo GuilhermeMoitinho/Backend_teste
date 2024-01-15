@@ -11,12 +11,12 @@ using Microsoft.AspNetCore.Mvc;
 namespace houseasy_API.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/usuarios")]
     public class UsuarioController : ControllerBase
     {
-        private readonly IUsuarioInterface _UsuarioInterface;
+        private readonly IUsuarioService _UsuarioInterface;
         private readonly IMapper _mapper;
-        public UsuarioController(IUsuarioInterface usuarioInterface, IMapper mapper)
+        public UsuarioController(IUsuarioService usuarioInterface, IMapper mapper)
         {
             _UsuarioInterface = usuarioInterface;
             _mapper = mapper;

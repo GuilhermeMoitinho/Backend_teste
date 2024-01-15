@@ -6,7 +6,7 @@ using houseasy_API.Domain.Models;
 
 namespace houseasy_API.Application.Services.UsuarioService
 {
-    public interface IUsuarioInterface
+    public interface IUsuarioService
     {
         Task<ServiceResponse<List<Usuario>>> GetUsuarios();
         Task<ServiceResponse<List<Usuario>>> CreateFuncionarios(Usuario modelCreate);

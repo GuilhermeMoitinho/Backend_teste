@@ -7,7 +7,7 @@ using houseasy_API.Infrastructure.DataContext;
 
 namespace houseasy_API.Application.Services.UsuarioService
 {
-    public class UsuarioService : IUsuarioInterface
+    public class UsuarioService : IUsuarioService
     {
         private readonly AppDbContext _context;
 

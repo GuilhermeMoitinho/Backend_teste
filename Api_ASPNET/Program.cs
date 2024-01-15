@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddAutoMapper(typeof(EntitesToDTOMappingProfile));
-builder.Services.AddScoped<IUsuarioInterface, UsuarioService>();
+builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 builder.Services.AddDbContext<AppDbContext>(op => op.UseSqlServer(builder.Configuration.GetConnectionString("ConexaoPadrao")));
 
 builder.Services.AddControllers();
